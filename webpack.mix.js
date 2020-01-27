@@ -21,3 +21,9 @@ if (mix.inProduction()) {
     mix.sourceMaps()
         .webpackConfig({devtool: 'source-map'});
 }
+
+mix.webpackConfig({
+    devServer: {
+        disableHostCheck: true
+      }
+});
