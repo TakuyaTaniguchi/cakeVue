@@ -52,7 +52,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <h1>Welcome to CakePHP <?= Configure::version() ?> Red Velvet. Build fast. Grow solid.</h1>
     </div>
 </header>
-
+<?php $this->Mix->htmlCss('app')?>
 <div class="row">
     <div class="columns large-12">
         <div class="ctp-warning alert text-center">
