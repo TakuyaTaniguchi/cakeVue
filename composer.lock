@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bae3f640a631a993a49129d353eefbf9",
+    "content-hash": "7a5777db376b84148a02294d81fb3bf0",
     "packages": [
         {
             "name": "aura/intl",
@@ -342,6 +342,47 @@
                 "php mobile detect"
             ],
             "time": "2019-09-18T18:44:20+00:00"
+        },
+        {
+            "name": "mosaxiv/cakephp-mix",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mosaxiv/cakephp-mix.git",
+                "reference": "dde3b1535068179d715f704a1497bec728f0cddd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mosaxiv/cakephp-mix/zipball/dde3b1535068179d715f704a1497bec728f0cddd",
+                "reference": "dde3b1535068179d715f704a1497bec728f0cddd",
+                "shasum": ""
+            },
+            "require": {
+                "cakephp/cakephp": "~3.4"
+            },
+            "require-dev": {
+                "cakephp/cakephp-codesniffer": "^3.0",
+                "phpunit/phpunit": "^5.7|^6.0"
+            },
+            "type": "cakephp-plugin",
+            "autoload": {
+                "psr-4": {
+                    "CakeMix\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Helper to use laravel-mix with CakePHP3",
+            "homepage": "https://github.com/mosaxiv/cakephp-mix",
+            "keywords": [
+                "cakephp",
+                "laravel-mix",
+                "react",
+                "vue"
+            ],
+            "time": "2018-08-07T14:07:10+00:00"
         },
         {
             "name": "psr/container",
