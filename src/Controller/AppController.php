@@ -40,6 +40,7 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
+        $this->viewBuilder()->autoLayout(false);
 
         $this->loadComponent('RequestHandler', [
             'enableBeforeRedirect' => false,
@@ -51,5 +52,9 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+    }
+
+    public function index()
+    {
     }
 }
