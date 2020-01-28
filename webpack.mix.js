@@ -1,5 +1,7 @@
 let mix = require('laravel-mix');
-
+const tailwindcss = require('tailwindcss');
+const path = require('path');
+const glob = require('glob');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,7 +15,11 @@ let mix = require('laravel-mix');
 
 mix.setPublicPath('webroot')
     .js('assets/js/app.js', 'js')
-    .sass('assets/sass/app.scss', 'css');
+    .sass('assets/sass/app.scss', 'css')
+    .options({
+        processCssUrls: false,
+        postCss: [tailwindcss('./tailwind.config.js')],
+    });
 
 if (mix.inProduction()) {
     mix.version();
