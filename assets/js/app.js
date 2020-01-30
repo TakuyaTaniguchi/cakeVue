@@ -3,10 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-require('./bootstrap');
-
-
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -17,10 +13,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-Vue.config.productionTip = false;
+
+require('./bootstrap')
+Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
   router,
   store
-}).$mount("#app");
+}).$mount('#app')

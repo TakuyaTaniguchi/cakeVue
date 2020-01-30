@@ -1,5 +1,5 @@
-let mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
+const mix = require('laravel-mix')
+const tailwindcss = require('tailwindcss')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -12,22 +12,31 @@ const tailwindcss = require('tailwindcss');
  */
 
 mix.setPublicPath('webroot')
-    .js('assets/js/app.js', 'js')
-    .sass('assets/sass/app.scss', 'css')
-    .options({
-        processCssUrls: false,
-        postCss: [tailwindcss('./tailwind.config.js')],
-    });
+  .js('assets/js/app.js', 'js')
+  .sass('assets/sass/app.scss', 'css')
+  .options({
+    processCssUrls: false,
+    postCss: [tailwindcss('./tailwind.config.js')]
+  })
 
 if (mix.inProduction()) {
-    mix.version();
+  mix.version()
 } else {
-    mix.sourceMaps()
-        .webpackConfig({devtool: 'source-map'});
+  mix.sourceMaps()
+    .webpackConfig({ devtool: 'source-map' })
 }
-
 mix.webpackConfig({
-    devServer: {
-        disableHostCheck: true
+  devServer: {
+    disableHostCheck: true
+  },
+  module: {
+    rules: [
+      {
+        enforce: 'pre',
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        test: /\.(js|vue)?$/
       }
-});
+    ]
+  }
+})
