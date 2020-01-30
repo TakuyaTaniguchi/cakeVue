@@ -1,12 +1,14 @@
 <template>
   <div>
-      <AppHeader/>
-      <Card/>
-      <div id="nav">
-        <router-link to="/about">About</router-link>
-         <router-view />
-      </div>
-      <AppFooter/>
+    <AppHeader />
+    <Card />
+    <div id="nav">
+      <router-link to="/about">
+        About
+      </router-link>
+      <router-view />
+    </div>
+    <AppFooter />
   </div>
 </template>
 

@@ -15,7 +15,8 @@ module.exports = {
     },
     extends: [
       'standard', // https://github.com/standard/standard/blob/master/docs/RULES-en.md,
-      'plugin:vue/essential'
+      'plugin:vue/essential',
+      'plugin:vue/strongly-recommended'
     ],
     // required to lint *.vue files
     plugins: [
