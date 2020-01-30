@@ -66,4 +66,6 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
-
+# Frontend
+webroot/css/app.js
+webroot/css/app.css
