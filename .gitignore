@@ -67,5 +67,5 @@ yarn-error.log*
 *.sln
 *.sw?
 # Frontend
-webroot/css/app.js
+webroot/js/app.js
 webroot/css/app.css
