@@ -5,7 +5,7 @@
  */
 require('./bootstrap');
 
-window.Vue = require('vue');
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13,9 +13,12 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import App from "./App.vue";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router/index.js'
 Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App)
+  render: h => h(App),
+  router
 }).$mount("#app");

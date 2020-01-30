@@ -1,7 +1,5 @@
 let mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
-const path = require('path');
-const glob = require('glob');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
