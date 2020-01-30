@@ -55,7 +55,7 @@ export default {
 
 <style scoped>
 .w-pxcard{
-    max-width: 300px;
-    width: 33.33333%;
+  max-width: 300px;
+  width: 33.33333%;
 }
 </style>

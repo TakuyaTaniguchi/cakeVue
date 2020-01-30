@@ -24,7 +24,8 @@ export default {
   }
 }
 </script>
-
 <style scoped>
-
+#id{
+  color: red;
+}
 </style>

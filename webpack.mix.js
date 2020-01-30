@@ -1,5 +1,6 @@
 const mix = require('laravel-mix')
 const tailwindcss = require('tailwindcss')
+const styleLintPlugin = require('stylelint-webpack-plugin')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
