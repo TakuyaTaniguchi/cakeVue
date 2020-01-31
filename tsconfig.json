@@ -3,7 +3,6 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
-    "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -12,12 +11,12 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env",
-      "jest"
+      "jest",
+      "node"
     ],
     "paths": {
       "@/*": [
-        "src/*"
+        "assets/*"
       ]
     },
     "lib": [
@@ -28,9 +27,9 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
+    "assets/**/*.ts",
+    "assets/**/*.tsx",
+    "assets/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],

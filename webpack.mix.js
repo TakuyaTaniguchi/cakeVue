@@ -1,6 +1,5 @@
 const mix = require('laravel-mix')
 const tailwindcss = require('tailwindcss')
-const styleLintPlugin = require('stylelint-webpack-plugin')
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,7 +12,7 @@ const styleLintPlugin = require('stylelint-webpack-plugin')
  */
 
 mix.setPublicPath('webroot')
-  .js('assets/js/app.js', 'js')
+  .ts('assets/js/app.ts', 'js')
   .sass('assets/sass/app.scss', 'css')
   .options({
     processCssUrls: false,
@@ -30,8 +29,21 @@ mix.webpackConfig({
   devServer: {
     disableHostCheck: true
   },
+  resolve: {
+    extensions: ['.js', '.ts', '.vue', '.json']
+  },
   module: {
     rules: [
+      {
+        // 'ts-loader' で TypeScript をコンパイル
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader',
+        // '*.vue' ファイルも TS として認識させるためのオプション
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
+      },
       {
         enforce: 'pre',
         exclude: /node_modules/,
