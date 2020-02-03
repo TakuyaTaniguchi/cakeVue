@@ -69,3 +69,4 @@ yarn-error.log*
 # Frontend
 webroot/js/app.js
 webroot/css/app.css
+.env
