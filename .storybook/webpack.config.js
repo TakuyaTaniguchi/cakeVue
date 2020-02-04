@@ -1,25 +1,7 @@
-const path = require('path')
+const path = require('path');
+// your app's webpack.config.js
+const custom = require('../node_modules/laravel-mix/setup/webpack.config.js');
 
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.styl$/,
-        loaders: ['style-loader', 'css-loader', 'stylus-loader', {
-          loader: 'vuetify-loader',
-          options: {
-            theme: path.resolve(__dirname, '../src/stylus/')
-          }
-        }],
-        include: path.resolve(__dirname, '../src')
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: {
-      vue: 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, '../src/')
-    }
-  }
-}
+module.exports = async ({ config, mode }) => {
+  return { ...config, module: { ...config.module, rules: custom.module.rules } };
+};
