@@ -10,7 +10,9 @@
     "lint:js": "eslint --fix \"assets/js/*.{vue,{j,t}s?(x)}\"",
     "lint:scss": "stylelint \"assets/**/**/*.vue\" --fix",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "buid-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "@types/jest": "^25.1.1",
@@ -54,15 +56,20 @@
     "ts-loader": "^3.5",
     "typescript": "^3.7.5",
     "vue": "^2.5.7",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@storybook/vue": "^5.3.10",
+    "@vue/composition-api": "^0.3.4",
+    "babel-loader": "^8.0.6",
+    "babel-preset-vue": "^2.0.2",
     "core-js": "^3.6.4",
     "tailwindcss": "^1.1.4",
     "vue-class-component": "^7.2.2",
+    "vue-loader": "^15.8.3",
     "vue-property-decorator": "^8.3.0",
     "vue-router": "^3.1.5",
-    "vuex": "^3.1.2",
-    "@vue/composition-api": "^0.3.4"
+    "vuex": "^3.1.2"
   }
 }
