@@ -14,24 +14,18 @@
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       <div class="text-sm lg:flex-grow">
-        <a
-          href="/"
+        <router-link
+          to="/"
           class="block lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
         >
-          User情報
-        </a>
-        <a
-          href="/"
+          Home
+        </router-link>
+        <router-link
+          to="/about"
           class="block lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
         >
-          記録一覧
-        </a>
-        <a
-          href="/"
-          class="block lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
-        >
-          データ
-        </a>
+          About
+        </router-link>
       </div>
       <div>
         <a

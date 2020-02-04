@@ -4,9 +4,9 @@
       class="p-24 flex flex-wrap items-center justify-center"
     >
       <div
-        class="flex-shrink-0 m-6 relative overflow-hidden bg-red-arm rounded-lg max-w-xs shadow-lg"
-        v-for="(skil, index) in skils.skilArm"
-        :key="index"
+        class="flex-shrink-0 m-6 relative overflow-hidden bg-red-arm rounded-lg max-w-xs shadow-lg cursor-pointer hover:opacity-50"
+        v-for="(skil) in skils.skilArm"
+        :key="skil"
       >
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="flex justify-center">
@@ -16,8 +16,8 @@
       </div>
       <div
         class="flex-shrink-0 m-6 relative overflow-hidden bg-yellow-abs rounded-lg max-w-xs shadow-lg"
-        v-for="(skil, index) in skils.skilAbs"
-        :key="index"
+        v-for="(skil) in skils.skilAbs"
+        :key="skil"
       >
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="flex justify-center">
@@ -27,8 +27,8 @@
       </div>
       <div
         class="flex-shrink-0 m-6 relative overflow-hidden bg-purple-foot rounded-lg max-w-xs shadow-lg"
-        v-for="(skil, index) in skils.skilFoot"
-        :key="index"
+        v-for="(skil) in skils.skilFoot"
+        :key="skil"
       >
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="flex justify-center">
@@ -38,8 +38,8 @@
       </div>
       <div
         class="flex-shrink-0 m-6 relative overflow-hidden bg-green-yoga rounded-lg max-w-xs shadow-lg"
-        v-for="(skil, index) in skils.skilYoga"
-        :key="index"
+        v-for="(skil) in skils.skilYoga"
+        :key="skil"
       >
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="flex justify-center">
