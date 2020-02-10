@@ -1,7 +1,7 @@
 <template>
   <nav class="flex items-center justify-between flex-wrap color-main p-6">
     <div class="flex items-center flex-shrink-0 text-white mr-6">
-      <span class="font-semibold text-xl tracking-tight">リングフィットアプリ</span>
+      <span class="font-semibold text-xl tracking-tight">打ち込みアプリ</span>
     </div>
     <div class="block lg:hidden">
       <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">

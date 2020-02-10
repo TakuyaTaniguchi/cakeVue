@@ -1,14 +1,58 @@
 <template>
   <div class="home">
-    <Card />
+    <Search
+      :search="state.search"
+      @search="handleSearch"
+    />
+    <p class="App-intro">
+      Sharing a few of our favourite movies
+    </p>
+    <div>
+      <Movie
+        v-for="movie in state.movies"
+        :movie="movie"
+        :key="movie.id"
+      />
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import Card from '../components/Card.vue'
+<script>
+import { reactive, watch } from '@vue/composition-api'
+import Search from '../components/Search.vue'
+import Movie from '../components/Movie.vue'
 export default {
   components: {
-    Card
+    Search,
+    Movie
+  },
+  setup () {
+    const state = reactive({
+      search: 'Joker',
+      loading: true,
+      movies: [],
+      errorMessage: null
+    })
+
+    watch(() => {
+      // const MOVIE_API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.MIX_TMDB_KEY}&language=ja-JA`
+      const MOVIE_API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MIX_TMDB_KEY}&query=${state.search}&language=ja-JA`
+      fetch(MOVIE_API_URL)
+        .then(response => response.json())
+        .then(jsonResponse => {
+          console.log(MOVIE_API_URL)
+          console.dir(jsonResponse)
+          state.movies = jsonResponse.results
+          state.loading = false
+        })
+    })
+    return {
+      state,
+      handleSearch (searchTerm) {
+        state.loading = true
+        state.search = searchTerm
+      }
+    }
   }
 }
 </script>
