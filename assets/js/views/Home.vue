@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { reactive, watch } from '@vue/composition-api'
+import { reactive, watch, onMounted } from '@vue/composition-api'
 import Search from '../components/Search.vue'
 import Movie from '../components/Movie.vue'
 export default {
@@ -31,7 +31,15 @@ export default {
       search: 'Joker',
       loading: true,
       movies: [],
-      errorMessage: null
+      errorMessage: null,
+      pagination: {
+        currentPage: 0
+      }
+    })
+    onMounted(() => {
+      setTimeout(() => {
+        console.log(state.pagination.currentPage)
+      }, 4000)
     })
 
     watch(() => {
@@ -40,8 +48,8 @@ export default {
       fetch(MOVIE_API_URL)
         .then(response => response.json())
         .then(jsonResponse => {
-          console.log(MOVIE_API_URL)
           console.dir(jsonResponse)
+          state.pagination.currentPage = jsonResponse.page
           state.movies = jsonResponse.results
           state.loading = false
         })

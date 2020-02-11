@@ -5,7 +5,9 @@
       <img
         width="200"
         :alt="altText"
-        :src="`https://image.tmdb.org/t/p/w780/${movie.poster_path}`"
+        :src="[
+          movie.poster_path === null ? './img/dummy.jpg' : `https://image.tmdb.org/t/p/w780/${movie.poster_path}`
+        ]"
       >
     </div>
     <p>{{ movie.release_date }}</p>
