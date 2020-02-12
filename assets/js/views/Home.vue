@@ -23,9 +23,9 @@
           <div>
             <div>
               <ul class="flex pl-0 list-none rounded my-2">
-                <li :class="[state.pagination.currentPage === 1 ? 'active' : '','relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 ml-0 rounded-l hover:bg-gray-200']">
+                <li :class="[state.pagination.currentPage === 1 ? 'active' : '','relative w-full block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 ml-0 rounded-l hover:bg-gray-200']">
                   <button
-                    class="page-link"
+                    class="w-full page-link"
                     @click="loadMore(state.pagination.currentPage + 1)"
                   >
                     MORE
