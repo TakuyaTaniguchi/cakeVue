@@ -1,18 +1,27 @@
 <template>
   <div class="home">
-    <Search
-      :search="state.search"
-      @search="handleSearch"
-    />
-    <p class="App-intro">
-      Sharing a few of our favourite movies
-    </p>
+    <div class="py-4">
+      <div class="px-4">
+        <div class="w-full width-card md:mx-2 mb-4 md:mb-0">
+          <Search
+            :search="state.search"
+            @search="handleSearch"
+          />
+        </div>
+      </div>
+    </div>
     <div>
-      <Movie
-        v-for="movie in state.movies"
-        :movie="movie"
-        :key="movie.id"
-      />
+      <main class="py-4">
+        <div class="px-4">
+          <div class="block md:flex flex-wrap justify-between md:-mx-2">
+            <Movie
+              v-for="movie in state.movies"
+              :movie="movie"
+              :key="movie.id"
+            />
+          </div>
+        </div>
+      </main>
     </div>
   </div>
 </template>
@@ -49,6 +58,7 @@ export default {
         .then(response => response.json())
         .then(jsonResponse => {
           console.dir(jsonResponse)
+          // resultの中にNULLがある場合がある。
           state.pagination.currentPage = jsonResponse.page
           state.movies = jsonResponse.results
           state.loading = false
@@ -65,7 +75,5 @@ export default {
 }
 </script>
 <style scoped>
-#id{
-  color: red;
-}
+
 </style>

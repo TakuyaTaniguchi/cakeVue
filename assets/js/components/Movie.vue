@@ -1,21 +1,47 @@
 <template>
-  <div>
-    <h2>{{ movie.title }}</h2>
-    <div>
+  <div class="w-full lg:w-1/3card md:mx-2 mb-4 md:mb-0">
+    <div class="bg-white rounded-lg overflow-hidden shadow relative">
       <img
-        width="200"
-        :alt="altText"
+        class="h-56 w-full object-cover object-center"
+        :alt="movie.title"
         :src="[
           movie.poster_path === null ? './img/dummy.jpg' : `https://image.tmdb.org/t/p/w780/${movie.poster_path}`
         ]"
       >
+      <div class="p-4 relative h-auto md:h-40 lg:h-48">
+        <a
+          href="#"
+          class="block text-blue-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"
+        >
+          <h2>{{ movie.title }}</h2>
+        </a>
+        <a
+          href="#"
+          class="like-button"
+        >
+          <svg
+            class="heart-icon red"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
+          </svg>
+        </a>
+        <p class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
+          {{ movie.overview }}
+        </p>
+        <div class="relative mt-2 bottom-0 mb-4 md:hidden lg:block">
+          <span
+            class="inline border-b border-teal-600 py-1 px-2 text-xs lowercase text-gray-700"
+          >おすすめ:{{ movie.vote_average }}</span>
+        </div>
+      </div>
     </div>
-    <p>{{ movie.release_date }}</p>
   </div>
 </template>
 
 <script>
 import { computed } from '@vue/composition-api'
+
 export default {
   name: 'Movie',
   props: ['movie'],
@@ -25,3 +51,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.like-button {
+  position: absolute;
+  top:20px;
+  right: 20px;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  fill: #a9aeb3;
+  &.red {
+    fill: red;
+  }
+}
+</style>

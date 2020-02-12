@@ -1,7 +1,8 @@
 <template>
-  <form class="search">
+  <form class="border-2 border-teal-600 inline-block">
     <input
       type="text"
+      placeholder="映画名を検索しよう。"
       :value="movieTitle"
       @keyup="handleChange"
     >
