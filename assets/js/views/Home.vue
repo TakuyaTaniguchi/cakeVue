@@ -20,6 +20,20 @@
               :key="movie.id"
             />
           </div>
+          <div>
+            <div>
+              <ul class="flex pl-0 list-none rounded my-2">
+                <li :class="[state.pagination.currentPage === 1 ? 'active' : '','relative block py-2 px-3 leading-tight bg-white border border-gray-300 text-blue-700 border-r-0 ml-0 rounded-l hover:bg-gray-200']">
+                  <button
+                    class="page-link"
+                    @click="loadMore(state.pagination.currentPage + 1)"
+                  >
+                    MORE
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -27,9 +41,28 @@
 </template>
 
 <script>
-import { reactive, watch, onMounted } from '@vue/composition-api'
+import { reactive, watch, onMounted, onUpdated } from '@vue/composition-api'
 import Search from '../components/Search.vue'
 import Movie from '../components/Movie.vue'
+
+const useMore = (state) => {
+  const loadMore = (page) => {
+    state.pagination.currentPage++
+    const MOVIE_API_URL = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MIX_TMDB_KEY}&query=${state.search}&page=${state.pagination.currentPage}&language=ja-JA`
+    fetch(MOVIE_API_URL)
+      .then(response => response.json())
+      .then(jsonResponse => {
+        console.dir(jsonResponse)
+        // resultの中にNULLがある場合がある。
+        state.movies = state.movies.concat(jsonResponse.results)
+        state.loading = false
+      })
+  }
+  return {
+    loadMore
+  }
+}
+
 export default {
   components: {
     Search,
@@ -41,8 +74,10 @@ export default {
       loading: true,
       movies: [],
       errorMessage: null,
+      counter: 0,
       pagination: {
-        currentPage: 0
+        currentPage: 1,
+        total_pages: 3
       }
     })
     onMounted(() => {
@@ -50,6 +85,11 @@ export default {
         console.log(state.pagination.currentPage)
       }, 4000)
     })
+    onUpdated(() => {
+      console.log('update')
+    })
+
+    const { loadMore } = useMore(state)
 
     watch(() => {
       // const MOVIE_API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.MIX_TMDB_KEY}&language=ja-JA`
@@ -60,12 +100,15 @@ export default {
           console.dir(jsonResponse)
           // resultの中にNULLがある場合がある。
           state.pagination.currentPage = jsonResponse.page
+          state.pagination.total_pages = jsonResponse.total_pages
           state.movies = jsonResponse.results
           state.loading = false
         })
     })
+
     return {
       state,
+      loadMore,
       handleSearch (searchTerm) {
         state.loading = true
         state.search = searchTerm
@@ -74,6 +117,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-
-</style>

@@ -6,11 +6,13 @@
       :value="movieTitle"
       @keyup="handleChange"
     >
-    <input
+    <button
       @click="handleSubmit"
       type="submit"
       value="SEARCH"
     >
+      SEARCH
+    </button>
   </form>
 </template>
 
