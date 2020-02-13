@@ -11,21 +11,21 @@
       <div class="p-4 relative h-auto md:h-40 lg:h-48">
         <a
           href="#"
-          class="block text-blue-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg"
+          class="block text-blue-500 hover:text-blue-600 font-semibold mb-2 text-lg md:text-base lg:text-lg pr-6"
         >
           <h2>{{ movie.title }}</h2>
         </a>
-        <a
-          href="#"
-          class="like-button"
+        <div
+          @click="checkFavorite"
+          class="inline-block cursor-pointer"
         >
           <svg
-            class="heart-icon"
+            :class="['heart-icon',state.favorite ? '' : '_checkFavorite']"
             viewBox="0 0 24 24"
           >
             <path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" />
           </svg>
-        </a>
+        </div>
         <p class="text-gray-600 text-sm leading-relaxed block md:text-xs lg:text-sm">
           {{ movie.overview }}
         </p>
@@ -40,14 +40,20 @@
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { reactive, computed } from '@vue/composition-api'
 
 export default {
   name: 'Movie',
   props: ['movie'],
   setup ({ movie }) {
+    const state = reactive({
+      favorite: true
+    })
+    const checkFavorite = () => {
+      state.favorite = !state.favorite
+    }
     const altText = computed(() => `The movie titled: ${movie.Title}`)
-    return { altText }
+    return { state, altText, checkFavorite }
   }
 }
 </script>
@@ -64,7 +70,7 @@ export default {
   height: 24px;
   stroke: red;
   fill: none;
-  &.red {
+  &._checkFavorite {
     fill: red;
   }
 }

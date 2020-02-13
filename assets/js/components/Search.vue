@@ -27,11 +27,9 @@ export default {
       movieTitle,
       handleSubmit (event) {
         event.preventDefault()
-        console.log('submit')
         emit('search', movieTitle.value)
       },
       handleChange (event) {
-        console.log('cahnge')
         movieTitle.value = event.target.value
       }
     }
