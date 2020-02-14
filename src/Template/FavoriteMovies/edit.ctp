@@ -1,0 +1,11 @@
+<?=$this->Form->create($entity,
+    ['type'=>'post',
+    'url'=>['controller'=>'Articles',
+        'action'=>'update']])?>
+<?=$this->Form->hidden('Articles.id');?>
+<div>title</div>
+<div><?=$this->Form->text('Articles.title');?></div>
+<div>body</div>
+<div><?=$this->Form->text('Articles.body');?></div>
+<div><?=$this->Form->submit('送信');?></div>
+<div><?=$this->Form->end();?></div>
